@@ -21,7 +21,7 @@ public class ProjectService {
         return projectRepository.findAll();
     }
 
-    public ProjectModel addItem(ProjectRequest request) {
+    public ProjectModel addProject(ProjectRequest request) {
         ProjectModel projectModel = new ProjectModel();
         projectModel.setName(request.getName());
         return projectRepository.save(projectModel);
@@ -31,15 +31,15 @@ public class ProjectService {
         return projectRepository.findOne(id);
     }
 
-    public ProjectModel updateItem(Long id, ProjectRequest request) {
-        ProjectModel updatedItem = Optional.ofNullable(projectRepository.findOne(id)).map(project -> {
+    public ProjectModel updateProject(Long id, ProjectRequest request) {
+        ProjectModel updatedProject = Optional.ofNullable(projectRepository.findOne(id)).map(project -> {
             project.setName(request.getName());
             return project;
         }).get();
-        return projectRepository.save(updatedItem);
+        return projectRepository.save(updatedProject);
     }
 
-    public void deleteItem(Long id) {
+    public void deleteProject(Long id) {
         projectRepository.delete(id);
     }
 }

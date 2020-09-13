@@ -29,17 +29,17 @@ public class ProjectController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ProjectModel addProject(@RequestBody ProjectRequest request) {
-        return projectService.addItem(request);
+        return projectService.addProject(request);
     }
 
     @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
     public ProjectModel updateProject(@PathVariable Long id, @RequestBody ProjectRequest request) {
-        return projectService.updateItem(id, request);
+        return projectService.updateProject(id, request);
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     public boolean deleteProject(@PathVariable Long id) {
-        projectService.deleteItem(id);
+        projectService.deleteProject(id);
         return true;
     }
 }
